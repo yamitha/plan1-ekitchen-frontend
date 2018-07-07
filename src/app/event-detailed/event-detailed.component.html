@@ -1,0 +1,40 @@
+<app-navigation></app-navigation>
+
+<div class="page-holder">
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="title mb-4">
+          <h1 class="display-4 mb-2">
+            {{coupon?.title}}
+          </h1>
+          <p>
+            {{coupon?.value | number}}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 mb-4">
+        <img src="{{coupon?.artWorkLink}}" alt="" class="img-fluid">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 mb-4">
+        <div [innerHTML]="coupon?.description"></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 mb-4">
+        <small>When you claim you will be redirected to Whatsapp, please confirm by sending the message so we can be intouch with you!</small>
+      </div>
+      <div class="col-md-12 mb-5">
+        <button class="btn btn-primary btn-block" (click)="claimCoupon();" *ngIf="loggedIn">Claim Coupon</button>
+        <a class="btn btn-primary btn-block" [routerLink]="['/signup']" *ngIf="!loggedIn">Sign Up to Claim Coupon</a>
+      </div>
+    </div>
+
+  </div>
+</div>

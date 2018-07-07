@@ -1,0 +1,30 @@
+<header class="ekitchen-header">
+  <div class="container nav">
+    <div class="left">
+      <div class="logo">
+        <img src="/assets/images/logos/ekitchen.png" alt="">
+      </div>
+    </div>
+    <div class="right">
+      <ul class="list-items">
+        <li>
+          <a [routerLink]="['/events']">Home</a>
+        </li>
+        <li>
+          <a [routerLink]="['/purchases']">Purchases</a>
+        </li>
+        <li *ngIf="!user">
+          <a [routerLink]="['/signup']">Sign up</a>
+        </li>
+        <li *ngIf="!user">
+          <a [routerLink]="['/login']">Login</a>
+        </li>
+        <li *ngIf="user" class="logged-in">
+          <a [routerLink]="['/profile']">
+            {{ user.fullName }}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>

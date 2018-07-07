@@ -1,0 +1,72 @@
+<app-navigation></app-navigation>
+
+<section class="ekitchen-menu">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="title-section">
+          <h1>
+            Select Items in the Menu
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <ul class="food-menu">
+          <li *ngFor="let item of kitchenItems">
+            <div class="food-item">
+              <div class="food-image">
+                <img src="{{item.itemImg}}" alt="">
+              </div>
+              <div class="food-content">
+                <div class="left">
+                  <div class="item-meta">
+                    <h4>{{item.itemName}}</h4>
+                    <p>Rs {{item.itemPrice | number: '1.2-2'}}</p>
+                    <p class="muted">{{ item.itemDescription }}</p>
+                  </div>
+                </div>
+                <div class="right">
+                  <div class="add-to-cart">
+                    <button (click)="addToCart(item)">
+                      <span class="">+</span>
+                    </button>
+                    <div class="quantity">
+                      <p [ngClass]="{highlight: item.itemQtyInCart > 0}">{{item.itemQtyInCart}}</p>
+                    </div>
+                    <button (click)="removeFromCart(item)"> 
+                      <span class="">-</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<a class="ekitchen-place-order" [ngClass]="{'slide-up': cart.numberOfItems > 0}" (click)="checkout()">
+  <div class="move-forward" *ngIf="loggedIn">
+    <h1>
+        Rs {{cart.total | number : '1.2-2'}} for {{cart.numberOfItems}} Items
+    </h1> 
+
+    <span class="fa fa-chevron-right">      
+    </span>
+  </div>
+  <div class="move-forward" *ngIf="!loggedIn">
+      <h1>
+        Sign Up to Place Order
+      </h1> 
+  
+      <span class="fa fa-chevron-right">      
+      </span>
+  </div>
+</a>

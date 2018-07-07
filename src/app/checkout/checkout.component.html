@@ -1,0 +1,149 @@
+<div class="checkout-title text-center">
+  <div class="contain-me">
+    <h1>CHECKOUT</h1>
+
+    <a (click)="navigateTo();">
+      <span class="fa fa-chevron-left"></span>
+    </a>
+  </div>
+</div>
+
+<div class="checkout-body" *ngIf="cart.numberOfItems > 0">
+  <div class="container" *ngIf="errorMessage">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="alert alert-danger">
+          {{ errorMessage }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="order-review-title">
+          <h1>Enter Delivery Address</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <div class="form-group delivery-address">
+            <input type="text" class="form-control" [(ngModel)]="user.address">
+            <button class="clear" (click)="user.address = ''">Clear</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="order-review-title">
+          <h1>Kitchen Details</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="block">
+          <div class="image-container">
+            <img src="{{kitchen.image}}" alt="">
+          </div>
+          <div class="details">
+            <h4>{{ kitchen.name}}</h4>
+            <span>{{ kitchen.whatsappNumber }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="order-review-title">
+          <h1>Order Review</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="boxed-orders">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="boxed-order-body">
+            <ul>
+              <li *ngFor="let item of cart.items">
+                <div class="item">
+                  <div class="item-image">
+                    <img src="{{item.itemImg}}" alt="">
+                  </div>
+                  <div class="content">
+                    <div class="item-name">
+                      <h4>{{item.itemName}}</h4>
+                    </div>
+                    <div class="item-quantity">
+                        <p>Rs {{item.itemPrice | number: '1.2-2'}} <span class="muted" style="color: rgba(119, 119, 119, 0.48);">x</span> {{item.itemQty}}</p>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <div class="amount-payable">
+              <div class="amt">
+                <div class="left">
+                  <h4>Quantity Total</h4>
+                </div>
+                <div class="right">
+                  <h4>{{cart.numberOfItems}}</h4>
+                </div>
+              </div>
+              <div class="amt">
+                <div class="left">
+                  <h4 class="boldy">Amount Payable</h4>
+                </div>
+                <div class="right">
+                  <h4 class="boldy">Rs {{cart.total | number: '1.2-2'}}</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="checkout-body no-items" *ngIf="!cart.numberOfItems">
+  <div class="image-container">
+    <img src="/assets/images/icons/empty-cart.png" alt="">
+  </div>
+  <div class="content">
+    <h1>Your cart is empty</h1>
+    <a (click)="navigateTo()">Go back</a>
+  </div>
+</div>
+
+<a class="ekitchen-place-order" [ngClass]="{'slide-up': cart.numberOfItems > 0}" (click)="sendOrder()">
+  <div class="move-forward">
+    <h1>
+        Confirm Order via Whatsapp
+    </h1> 
+    <span class="fa fa-chevron-right">      
+    </span>
+  </div>
+</a>

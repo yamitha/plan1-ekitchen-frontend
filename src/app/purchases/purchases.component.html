@@ -1,0 +1,71 @@
+<div class="purchases-title text-center">
+  <div class="contain-me">
+    <h1>PURCHASES</h1>
+
+    <a (click)="navigateTo();">
+      <span class="fa fa-chevron-left"></span>
+    </a>
+  </div>
+</div>
+
+<div class="purchases-body" *ngIf="purchases.numberofCoupons > 0">
+  <div class="container" *ngIf="errorMessage">
+    <div class="row">
+      <div class="col-md-12">
+       <div class="alert alert-danger">
+         {{ errorMessage }}
+       </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="order-review-title">
+          <h1>Purchases Review</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="boxed-orders">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="boxed-order-body">
+            <ul>
+              <li *ngFor="let coupon of purchases.coupons">
+                <div class="coupon">
+                  <div class="coupon-artWorkLink">
+                    <img src="{{Coupon.couponartWorkLink}}" alt="">
+                  </div>
+                  <div class="content">
+                    <div class="coupon-title">
+                      <h4>{{Coupon.couponTitle}}</h4>
+                    </div>
+                    <div class="coupon">
+                      <p>Rs {{Coupon.couponPrice | number: '1.2-2'}} <span class="muted" style="color: rgba(119, 119, 119, 0.48);">x</span> {{Coupon.couponQty}}</p>
+                    </div>
+                  </div>
+                </div>                
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="purchese-body no-coupons" *ngIf="!purchases.numberofCoupons">
+  <div class="artWorkLink-container">
+    <img src="/assets/images/icons/empty-cart.png" alt="">
+  </div>
+  <div class="content">
+    <h1>Your Purchases are empty</h1>
+    <a  (click)="navigateTo()">Go back</a>
+  </div>
+</div>

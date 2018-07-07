@@ -1,0 +1,93 @@
+$input-padding-x: .75rem;
+$input-padding-y: .75rem;
+
+div.flex-center{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    // background: url('https://images.pexels.com/photos/434337/pexels-photo-434337.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb');
+    background-position: center center;
+    background-size: cover;
+    background-color: #f5f5f5;
+    position: relative;
+    z-index: 2;
+}
+
+.form-signin {
+    width: 100%;
+    max-width: 420px;
+    padding: 15px;
+    margin: 0 auto;
+
+    input{
+        font-size: 12px;
+    }
+}
+
+.form-signin .form-control:focus {
+    z-index: 2;
+    box-shadow: none;
+    border: 1px solid #ced4da;
+}
+
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.form-label-group {
+    position: relative;
+    // margin-bottom: 1rem;
+}
+  
+.form-label-group > input,
+.form-label-group > label {
+    padding: $input-padding-y $input-padding-x;
+}
+  
+.form-label-group > label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 0; /* Override default `<label>` margin */
+    line-height: 1.5;
+    color: #495057;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    transition: all .1s ease-in-out;
+}
+  
+.form-label-group input::placeholder {
+    color: transparent;
+}
+  
+.form-label-group input:not(:placeholder-shown) {
+    padding-top: calc(#{$input-padding-y + $input-padding-y} * 1);
+    padding-bottom: calc(#{$input-padding-y} / 3);
+    height: 50px;
+}
+
+.form-label-group input:not(:placeholder-shown) ~ label {
+    padding-top: calc(#{$input-padding-y} / 3);
+    padding-bottom: calc(#{$input-padding-y} / 3);
+    font-size: 12px;
+    color: #777;
+}
+
+.alert.alert-danger{
+    margin-top: 10px;
+}

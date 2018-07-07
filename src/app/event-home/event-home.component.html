@@ -1,0 +1,69 @@
+<app-navigation></app-navigation>
+
+<div class="page-holder">
+  <section class="ekitchen-landing">
+    <div class="overlay"></div>
+    <div class="container">
+      <h1 class="display-4">Welcome to Ekitchen Events</h1>
+      <p class="lead">Ekitchen Events is dedicated to bring you the best offers through coupons at any events! To get the best value from
+        an event please select a coupon below!</p>
+    </div>
+  </section>
+
+  <section class="ekitchen-kitchens">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="page-title">
+            <h1 class="">Choose a Coupon</h1>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="coupon-item col-md-4 col-sm-12 col-xs-12" *ngFor="let coupon of couponsList | async">
+          <a [routerLink]="['/event', coupon.val().url]">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="logo">
+                  <img src="{{coupon.val().artWorkLink}}" alt="" srcset="" class="img-fluid">
+                </div>
+              </div>
+              <div class="meta col-md-12">
+                <div class="row">
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <div class="title">
+                      {{coupon.val().title}}
+                    </div>
+                    <small>Rs {{coupon.val().value | number}}</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <span>
+            Copyright Ekitchen 2018
+          </span>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- <a [routerLink]="['/event', coupon.val().url]">
+  <div class="logo">
+      <img src="{{coupon.val().artWorkLink}}" alt="">
+      <div class="kitchen-name">
+          {{ coupon.val().title }}
+      </div>                                
+  </div>
+</a> -->

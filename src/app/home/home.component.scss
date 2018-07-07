@@ -1,0 +1,137 @@
+div.page-holder{
+    padding-top: 80px;
+    height: calc(100vh - 80px);
+}
+
+section.error-block{
+    padding-top: 60px;
+    
+    .alert{
+        font-size: 20px;
+    }
+}
+
+section.ekitchen-landing {
+    height: 300px;
+    width: 100%;
+    background: #e9ecef;
+    background-image: url('https://images.pexels.com/photos/718742/pexels-photo-718742.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+    background-position: center left;
+    position: relative;
+
+    div.overlay{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: rgba(0,0,0,.5);
+        top: 0;
+        left: 0;
+    }
+
+    .container{
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        position: relative;
+        z-index: 1;
+
+        h1, p{
+            color: #fff;
+            text-shadow: 0px 1px 10px rgba(0,0,0,.5);
+            text-align: center;
+        }
+
+        @media screen and (max-width: 430px) {
+            h1{
+                font-size: 28px;
+            }
+
+            p{
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+section.ekitchen-kitchens{
+    padding: 60px 0;
+
+    div.page-title{
+        text-align: center;
+        margin-bottom: 40px;
+
+        h1{
+            font-size: 28px;
+        }
+    }
+
+    ul.kitchen-list {
+        list-style: none;
+        display: flex;
+        align-items: flex-start; 
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        li {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+
+            &:last-child{
+                margin-bottom: 0px;
+            }
+
+            @media screen and (max-width: 768px) {
+                margin-bottom: 50px;
+            }
+
+            a{
+                display: block;
+                position: relative;
+
+                &:hover{
+                    div.logo div.kitchen-name{
+                        opacity: 1;
+                    }
+                }
+
+                div.logo{
+                    height: 200px;
+                    width: 200px;
+                    background: #fff;
+                    position: relative;
+                    
+                    img{
+                         height: 100%;
+                         width: 100%;
+                         object-fit: contain;
+                    }
+
+                    div.kitchen-name{
+                        opacity: 0;
+                        transition: 200ms linear;
+                        height: 50px;
+                        width: 100%;
+                        background: rgb(0,0,0);
+                        background: linear-gradient(0deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.7019607843137254) 35%, transparent 100%);
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        color: #fff;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                }
+            }
+        }
+    }
+}
+
+footer{
+    background: #333;
+    padding: 15px 0;
+    color: rgba(255,255,255,.4);
+}

@@ -1,0 +1,66 @@
+@import '../../scss/_variables.scss';
+
+header.ekitchen-header{
+    height: 80px;   
+    width: 100%;
+    padding: 0px 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    z-index: 99;
+
+    div.nav {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0;
+    }
+
+    div.left {
+        width: 20%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    div.right {
+        width: 80%;
+        height: 100%;
+    }
+
+    div.logo{
+        height: 52px;
+        width: 50px;
+        margin-right: 10px;
+
+        img{
+            height: 100%;   
+            width: 100%;
+        }
+    }
+
+    ul.list-items{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        list-style: none;
+        height: 100%;
+
+        li{
+            margin-right: 40px;
+            display: flex;
+            align-items: center;
+
+            &:last-child{
+                margin-right: 0px;
+            }
+
+            a{
+                padding: 10px;
+            }
+        }
+    }
+}

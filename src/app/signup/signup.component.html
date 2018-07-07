@@ -1,0 +1,51 @@
+<div class="flex-center text-center">
+  <form class="form-signin" id="userForm" name="userForm" (ngSubmit)="userForm.form.valid && addUser(userForm)" #userForm="ngForm" novalidate>
+    <img class="mb-5" src="/assets/images/logos/ekitchen.png" alt="" width="80" height="100">
+
+    <h1 class="font-weight-bold mb-4">Sign Up to Ekitchen</h1>
+
+    <div class="form-label-group" [ngClass]="{ 'has-error': userForm.submitted && !fullName.valid }">
+      <input type="text" id="inputFullName" class="form-control" name="fullName" placeholder="Full Name" [(ngModel)]="newUser.fullName" #fullName="ngModel" [ngClass]="{ 'is-invalid': userForm.submitted && !fullName.valid }" required autofocus >
+      <label for="inputFullName">Full Name</label>
+    </div>
+
+    <div class="form-label-group" [ngClass]="{ 'has-error': userForm.submitted && !email.valid }">
+      <input type="email" id="inputEmail" class="form-control normal-input" name="email" placeholder="Email" [(ngModel)]="newUser.email" #email="ngModel" [ngClass]="{ 'is-invalid': userForm.submitted && !email.valid }" required>
+      <label for="inputEmail">Email Address</label>
+    </div>
+
+    <div class="form-label-group" [ngClass]="{ 'has-error': userForm.submitted && !password.valid }">
+      <input type="password" id="inputPassword" class="form-control normal-input" name="password" placeholder="Password" [(ngModel)]="newUser.password" #password="ngModel" [ngClass]="{ 'is-invalid': userForm.submitted && !password.valid }" required>
+      <label for="inputPassword">Password</label>
+    </div>
+
+    <div class="form-label-group contact" [ngClass]="{ 'has-error': userForm.submitted && !contactNumber.valid }">
+      <input type="text" id="inputContact" class="form-control normal-input" name="contactNumber" placeholder="Contact Number" [(ngModel)]="newUser.contactNumber" #contactNumber="ngModel" [ngClass]="{ 'is-invalid': userForm.submitted && !contactNumber.valid }" required>
+      <span>+94</span>
+      <label for="inputContact">Whatsapp Contact Number</label>
+    </div>
+
+    <div class="form-label-group" [ngClass]="{ 'has-error': userForm.submitted && !address.valid }">
+      <input type="text" id="inputAddress" class="form-control last"  name="address" placeholder="Address" [(ngModel)]="newUser.address" #address="ngModel" [ngClass]="{ 'is-invalid': userForm.submitted && !address.valid }" required>
+      <label for="inputAddress">Address</label>
+    </div>
+
+    <button class="btn btn-lg btn-primary btn-block" [disabled]="loading" type="submit">Sign Up</button>
+
+    <!-- <div class="alert alert-danger">
+      <div *ngIf="userForm.submitted && !fullName.valid" class="invalid-feedback">Full Name is required</div>
+      <div *ngIf="userForm.submitted && !email.valid" class="invalid-feedback">Email is required</div>
+      <div *ngIf="userForm.submitted && !password.valid" class="invalid-feedback">Password is required</div>
+      <div *ngIf="userForm.submitted && !contactNumber.valid" class="invalid-feedback">Email is required</div>
+    </div> -->
+
+    <div class="alert alert-danger" *ngIf="errorMessage">
+      {{ errorMessage }}
+    </div>
+
+    <p class="mt-4 mb-3 text-center">Have an account? <a [routerLink]="['/login']">Sign in</a></p>
+
+
+    <p class="mt-5 mb-3 text-muted text-center">&copy; 2018</p>
+  </form>
+</div>

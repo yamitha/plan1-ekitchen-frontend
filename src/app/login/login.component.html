@@ -1,0 +1,28 @@
+<div class="flex-center text-center">
+  <form class="form-signin" name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+    <img class="mb-5" src="/assets/images/logos/ekitchen.png" alt="" width="80" height="100">
+
+    <h1 class="font-weight-bold mb-4">Login to Ekitchen</h1>
+
+    <div class="alert alert-success" *ngIf="status">
+      Your account is setup! Login to continue...
+    </div>
+
+    <div class="form-label-group" [ngClass]="{ 'has-error': f.submitted && !email.valid }">
+      <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && !email.valid }" required autofocus>
+      <label for="inputEmail">Email Address</label>
+    </div>
+
+    <div class="form-label-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+      <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" [(ngModel)]="model.password" #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && !password.valid }" required>
+      <label for="inputPassword">Password</label>
+    </div>
+
+    <button class="btn btn-lg btn-primary btn-block" [disabled]="loading" type="submit">Login</button>
+    
+    <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+
+    <p class="mt-4 mb-3 text-center">Don't have an account? <a [routerLink]="['/signup']">Sign up!</a></p>
+    <p class="mt-5 mb-3 text-muted text-center">&copy; 2018</p>
+  </form>
+</div>

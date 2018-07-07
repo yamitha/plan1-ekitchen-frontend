@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito:600,700|Open+Sans');
+
+/* You can add global styles to this file, and also import other style files */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+html{
+	height: 100%;
+	width: 100%;
+	position: relative
+}
+
+h1,h2,h3,h4,h5,h6,a,button,label{
+	font-family: 'Nunito', sans-serif;
+}
+
+p{
+	font-family: 'Open Sans', sans-serif;
+}
+
+body{
+    width: 100%;
+    position: relative;
+    height: 100%;
+}
+
+div.title-section{
+	text-align: center;
+	margin-bottom: 50px;
+
+	h1{
+		font-size: 26px;
+	}
+
+	p{
+		margin-top: 5px;
+		font-size: 16px;
+		line-height: 1.5;
+	}
+}
+
+a.ekitchen-place-order{
+    position: fixed;
+    bottom: -58px;
+    left: 0;
+    width: 100%;
+    height: 58px;
+    background: #17ad90;
+    color: #fff !important;
+    border-top: 1px solid #199e84;
+    transition-property: all;
+	transition-duration: .5s;
+    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+    text-decoration: none;
+    cursor: pointer;
+
+    &.slide-up{
+        bottom: 0px;
+    }
+
+    div.move-forward{
+        position: relative;
+        height: 100%;
+        max-width: 1170px;
+        margin: 0 auto;
+        padding: 0 23px;
+
+        h1{
+            line-height: 58px;
+            text-align: center;
+			text-shadow: 2px 2px 3px rgba(28, 76, 89, 0.15);
+
+            @media screen and (max-width: 990px) {
+                text-align: left;
+                font-size: 15px;
+            }
+        }
+
+        span{
+            position: absolute;
+            top: 0px;
+            right: 23px;
+			line-height: 58px;
+			text-shadow: 2px 2px 3px rgba(28, 76, 89, 0.15);
+			
+        }
+    }
+}
+
+// bug fix
+.dropdown-toggle::after{
+    display: none;
+}

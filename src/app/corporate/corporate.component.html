@@ -1,0 +1,105 @@
+<app-navigation></app-navigation>
+
+<div class="corporate-body">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="title-section">
+          <h1>Corporate Ordering for Rice & Curry</h1>
+          <p>Select a rice and curry combination and date required. Once completed place your order!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="corporate-selector">
+
+          <div class="select-item">
+              <label for="">When do you want this order?</label>
+              <date-picker [(ngModel)]="selectedDate" placeholder="Select a date"></date-picker>
+          </div>
+
+          <div class="select-item">
+            <label>Vegetable Curry <small>(Select 2)</small></label>
+            <ng-select [items]="vegetables"
+                        bindLabel="name"
+                        bindValue="name"
+                        placeholder="Select Vegetable Curry"
+                        [(ngModel)]="selectedVegetable" multiple="true" maxSelectedItems="2">
+            </ng-select>
+          </div>
+
+          <div class="select-item">
+            <label>Chicken Curry <small></small></label>
+            <ng-select [items]="chicken"
+                        bindLabel="name"
+                        bindValue="name"
+                        placeholder="Select Chicken Curry"
+                        [(ngModel)]="selectedChicken">
+            </ng-select>
+          </div>
+
+          <div class="select-item">
+            <label>Fish Curry <small></small></label>
+            <ng-select [items]="fish"
+                        bindLabel="name"
+                        bindValue="name"
+                        placeholder="Select Fish Curry"
+                        [(ngModel)]="selectedFish">
+            </ng-select>
+          </div>
+
+          <div class="select-item">
+            <label>Green Salads<small></small></label>
+            <ng-select [items]="greens"
+                        bindLabel="name"
+                        bindValue="name"
+                        placeholder="Select Salad"
+                        [(ngModel)]="selectedGreens">
+            </ng-select>
+          </div>
+
+          <div class="order-summary" *ngIf="selectedDate">
+            <h1>
+              Order Summary for {{ selectedDate | date }} 
+            </h1>
+
+            <p *ngIf="selectedVegetable">
+              Vegetables includes <span>{{selectedVegetable}}</span>
+            </p>
+
+            <p *ngIf="selectedChicken">
+              Chicken includes <span>{{selectedChicken}}</span>
+            </p>
+
+            <p *ngIf="selectedFish">
+              Fish includes <span>{{selectedFish}}</span>
+            </p>
+
+            <p *ngIf="selectedGreens">
+              Green Salad includes <span>{{selectedGreens}}</span>
+            </p>
+
+            <a class="place-order" (click)="checkout()">
+              Place Order Via Whatsapp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<a class="ekitchen-place-order slide-up hide" (click)="checkout()">
+  <div class="move-forward">
+    <h1>
+      Place Order via Whatsapp
+        <!-- Rs {{cart.total | number : '1.2-2'}} for {{cart.numberOfItems}} Items -->
+    </h1> 
+    <span class="fa fa-chevron-right">      
+    </span>
+  </div>
+</a>

@@ -1,0 +1,66 @@
+<app-navigation></app-navigation>
+
+<div class="page-holder">
+    <section class="ekitchen-landing">
+        <div class="overlay"></div>
+        <div class="container">
+            <h1 class="display-4">Welcome to Ekitchen</h1>
+            <p class="lead">Online ordering made easy through Whatsapp!</p>
+        </div>
+    </section>
+
+    <section class="error-block" *ngIf="!globalOrdering">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="alert alert-info text-center">
+                        {{ globalOrderingReason }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ekitchen-kitchens">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="page-title">
+                        <h1 class="">Choose a Kitchen</h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="kitchen-list">
+                        <li *ngFor="let kitchen of kitchensList | async">
+                            <a [routerLink]="['/kitchen', kitchen.val().url]">
+                                <div class="logo">
+                                    <img src="{{kitchen.val().logoUrl}}" alt="">
+                                    <div class="kitchen-name">
+                                        {{ kitchen.val().kitchenName }}
+                                    </div>                                
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <span>
+                        Copyright Ekitchen 2018
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+
